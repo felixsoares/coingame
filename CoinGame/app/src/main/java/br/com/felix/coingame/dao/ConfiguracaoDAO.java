@@ -26,6 +26,7 @@ public class ConfiguracaoDAO {
         values.put(UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_ERRO, configuracao.getQuantidadeErro());
         values.put(UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_CARAS, configuracao.getQuantidadeCaras());
         values.put(UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_COROAS, configuracao.getQuantidadeCoroas());
+        values.put(UtilDB.COLUMN_CONFIGURACAO_MOEDA_SELECIONADA, configuracao.getMoedaSlecionada());
 
         dataBaseService.getDataBase().insert(UtilDB.TABLE_CONFIGURACAO, null, values);
     }
@@ -41,6 +42,7 @@ public class ConfiguracaoDAO {
         values.put(UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_ERRO, configuracao.getQuantidadeErro());
         values.put(UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_CARAS, configuracao.getQuantidadeCaras());
         values.put(UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_COROAS, configuracao.getQuantidadeCoroas());
+        values.put(UtilDB.COLUMN_CONFIGURACAO_MOEDA_SELECIONADA, configuracao.getMoedaSlecionada());
 
         dataBaseService.getDataBase().update(UtilDB.TABLE_CONFIGURACAO, values, UtilDB.COLUMN_CONFIGURACAO_ID + " = " + configuracao.getId(), null);
     }
@@ -51,8 +53,8 @@ public class ConfiguracaoDAO {
                 UtilDB.COLUMN_CONFIGURACAO_TOCAR_SOM, UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_JOGADA,
                 UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_PONTOS_SEGUIDOS,
                 UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_ACERTO, UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_ERRO,
-                UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_CARAS, UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_COROAS
-
+                UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_CARAS, UtilDB.COLUMN_CONFIGURACAO_QUANTIDADE_COROAS,
+                UtilDB.COLUMN_CONFIGURACAO_MOEDA_SELECIONADA
         };
 
         Cursor mCursor = dataBaseService.getDataBase().query(true, UtilDB.TABLE_CONFIGURACAO, columns, null, null, null, null, null, null);
@@ -74,6 +76,7 @@ public class ConfiguracaoDAO {
                 configuracao.setQuantidadeErro(mCursor.getInt(6));
                 configuracao.setQuantidadeCaras(mCursor.getInt(7));
                 configuracao.setQuantidadeCoroas(mCursor.getInt(8));
+                configuracao.setMoedaSlecionada(mCursor.getInt(9));
             }
 
             mCursor.close();

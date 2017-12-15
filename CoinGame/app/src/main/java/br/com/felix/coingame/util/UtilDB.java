@@ -14,5 +14,6 @@ public class UtilDB {
     public static final String COLUMN_CONFIGURACAO_QUANTIDADE_ERRO = "quantidade_erro";
     public static final String COLUMN_CONFIGURACAO_QUANTIDADE_CARAS = "quantidade_caras";
     public static final String COLUMN_CONFIGURACAO_QUANTIDADE_COROAS = "quantidade_coroas";
+    public static final String COLUMN_CONFIGURACAO_MOEDA_SELECIONADA = "moeda_selecionada";
 
 }

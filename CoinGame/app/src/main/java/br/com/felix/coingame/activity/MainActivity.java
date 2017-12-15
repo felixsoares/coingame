@@ -1,10 +1,12 @@
 package br.com.felix.coingame.activity;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -14,6 +16,7 @@ import br.com.felix.coingame.patern.AppFactory;
 public class MainActivity extends AppCompatActivity {
 
     private MediaPlayer mp;
+    private Button btnJogar;
     private ImageButton imageButtonMusica, imageButtonSom, imageButtonConfig;
     private TextView textViewQuantidadeJogada, textViewQuantidadeAcerto, textViewQuantidadeErro;
 
@@ -28,6 +31,12 @@ public class MainActivity extends AppCompatActivity {
         verifySound();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        viewSetup();
+    }
+
     private void viewInit(){
         imageButtonMusica = (ImageButton) findViewById(R.id.imageButtonMusica);
         imageButtonSom = (ImageButton) findViewById(R.id.imageButtonSom);
@@ -36,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         textViewQuantidadeJogada = (TextView) findViewById(R.id.textViewQuantidadeJogada);
         textViewQuantidadeAcerto = (TextView) findViewById(R.id.textViewQuantidadeAcerto);
         textViewQuantidadeErro = (TextView) findViewById(R.id.textViewQuantidadeErro);
+
+        btnJogar = (Button) findViewById(R.id.btnJogar);
     }
 
     private void viewSetup(){
@@ -74,6 +85,13 @@ public class MainActivity extends AppCompatActivity {
         textViewQuantidadeAcerto.setText(AppFactory.getConfiguracao().getQuantidadeAcerto().toString());
         textViewQuantidadeErro.setText(AppFactory.getConfiguracao().getQuantidadeErro().toString());
         textViewQuantidadeJogada.setText(AppFactory.getConfiguracao().getQuantidadeJogada().toString());
+
+        btnJogar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, GameActivity.class));
+            }
+        });
     }
 
     private void verifyMusic(){
@@ -94,8 +112,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initMusic(){
-        if(mp == null)
-            mp = MediaPlayer.create(this, R.raw.back_sound);
+        if(mp == null) {
+            mp = MediaPlayer.create(this, R.raw.vintage_elecro_pop_loop);
+            mp.setVolume(25, 25);
+        }
 
         mp.setLooping(true);
         mp.start();
@@ -120,6 +140,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        System.exit(0);
+        if(mp != null){
+            mp.stop();
+        }
     }
 }

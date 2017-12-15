@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="br.com.felix.coingame.activity.MainActivity">
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:background="@drawable/circle"
+            android:layout_width="250dp"
+            android:layout_height="250dp">
+
+            <ImageView
+                android:id="@+id/imgFrente"
+                android:padding="20dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:src="@drawable/coin_game_frente"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/imgCoinFlip"
+                android:visibility="gone"
+                android:padding="20dp"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:src="@drawable/coin"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textViewPontuacao"
+            android:layout_marginTop="30dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="18sp"
+            android:text="Pontos: 0"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:gravity="center_horizontal|center_vertical"
+            android:textSize="18sp"
+            android:text="Qual lado da moeda irá parar?"
+            android:textColor="#000"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnCara"
+                android:layout_margin="20dp"
+                android:background="@color/colorAccent"
+                android:textColor="#000"
+                android:text="Cara"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/btnCoroa"
+                android:layout_margin="20dp"
+                android:background="@color/colorAccent"
+                android:textColor="#000"
+                android:text="Coroa"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnFlip"
+            android:textColor="#fff"
+            android:background="@color/colorPrimaryDark"
+            android:text="FLIP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

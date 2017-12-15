@@ -11,6 +11,7 @@ public class Configuracao {
     private Integer quantidadeErro;
     private Integer quantidadeCaras;
     private Integer quantidadeCoroas;
+    private int moedaSlecionada;
 
     public Configuracao(){
 
@@ -86,5 +87,13 @@ public class Configuracao {
 
     public void setQuantidadeCoroas(Integer quantidadeCoroas) {
         this.quantidadeCoroas = quantidadeCoroas;
+    }
+
+    public int getMoedaSlecionada() {
+        return moedaSlecionada;
+    }
+
+    public void setMoedaSlecionada(int moedaSlecionada) {
+        this.moedaSlecionada = moedaSlecionada;
     }
 }
